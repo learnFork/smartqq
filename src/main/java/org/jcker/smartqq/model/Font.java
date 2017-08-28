@@ -1,63 +1,61 @@
 package org.jcker.smartqq.model;
 
-/**
- * 字体.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 15/12/19.
- */
-public class Font {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-    public static final Font DEFAULT_FONT = defaultFont();
+@Entity
+@Table(name="font")
+public class Font
+{
+  public static final Font DEFAULT_FONT = defaultFont();
+  private int[] style;
+  private String color;
 
-    private static Font defaultFont() {
-        Font font = new Font();
-        font.setColor("000000");
-        font.setStyle(new int[]{0, 0, 0});
-        font.setName("宋体");
-        font.setSize(10);
-        return font;
-    }
+  @Id
+  private String name;
+  private int size;
 
-    private int[] style;
+  private static Font defaultFont()
+  {
+    Font font = new Font();
+    font.setColor("000000");
+    font.setStyle(new int[] { 0, 0, 0 });
+    font.setName("宋体");
+    font.setSize(10);
+    return font;
+  }
 
-    private String color;
+  public int[] getStyle()
+  {
+    return this.style;
+  }
 
-    private String name;
+  public void setStyle(int[] style) {
+    this.style = style;
+  }
 
-    private int size;
+  public String getColor() {
+    return this.color;
+  }
 
-    public int[] getStyle() {
-        return style;
-    }
+  public void setColor(String color) {
+    this.color = color;
+  }
 
-    public void setStyle(int[] style) {
-        this.style = style;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public String getColor() {
-        return color;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+  public int getSize() {
+    return this.size;
+  }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
+  public void setSize(int size) {
+    this.size = size;
+  }
 }

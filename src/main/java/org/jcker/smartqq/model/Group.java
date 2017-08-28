@@ -1,56 +1,46 @@
 package org.jcker.smartqq.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import org.jcker.database.Entity;
 
-/**
- * 群.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/18.
- */
-public class Group extends Entity {
+public class Group
+{
 
-    @JSONField(name = "gid")
-    private long id;
+  @JSONField(name="gid")
+  private long id;
+  private String name;
+  private long flag;
+  private long code;
 
-    private String name;
+  public long getId()
+  {
+    return this.id;
+  }
 
-    private long flag;
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    private long code;
+  public String getName() {
+    return this.name;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getFlag() {
+    return this.flag;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setFlag(long flag) {
+    this.flag = flag;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public long getCode() {
+    return this.code;
+  }
 
-    public long getFlag() {
-        return flag;
-    }
-
-    public void setFlag(long flag) {
-        this.flag = flag;
-    }
-
-    public long getCode() {
-        return code;
-    }
-
-    public void setCode(long code) {
-        this.code = code;
-    }
-
+  public void setCode(long code) {
+    this.code = code;
+  }
 }

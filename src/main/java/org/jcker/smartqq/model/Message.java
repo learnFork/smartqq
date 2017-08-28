@@ -2,68 +2,59 @@ package org.jcker.smartqq.model;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.jcker.database.Entity;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.jcker.domain.BaseEntity;
 
-/**
- * 消息.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 15/12/19.
- */
-public class Message extends Entity {
+@Entity
+@Table(name="message")
+public class Message extends BaseEntity
+{
+  private long time;
+  private String content;
+  private long userId;
 
-    private long time;
-    private String content;
-    private long userId;
+  public Message(JSONObject json)
+  {
+    JSONArray cont = json.getJSONArray("content");
 
-    private Font font;
-
-    public Message(JSONObject json) {
-        JSONArray cont = json.getJSONArray("content");
-        this.font = cont.getJSONArray(0).getObject(1, Font.class);
-
-        final int size = cont.size();
-        final StringBuilder contentBuilder = new StringBuilder();
-        for (int i = 1; i < size; i++) {
-            contentBuilder.append(cont.getString(i));
-        }
-        this.content = contentBuilder.toString();
-
-        this.time = json.getLongValue("time");
-        this.userId = json.getLongValue("from_uin");
+    int size = cont.size();
+    StringBuilder contentBuilder = new StringBuilder();
+    for (int i = 1; i < size; i++) {
+      contentBuilder.append(cont.getString(i));
     }
+    this.content = contentBuilder.toString();
 
-    public long getTime() {
-        return time;
-    }
+    this.time = json.getLongValue("time");
+    this.userId = json.getLongValue("from_uin");
+  }
+  @Id
+  @Column(name="time")
+  public long getTime() {
+    return this.time;
+  }
 
-    public void setTime(long time) {
-        this.time = time;
-    }
+  public void setTime(long time) {
+    this.time = time;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  @Column(name="content")
+  public String getContent() {
+    return this.content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public long getUserId() {
-        return userId;
-    }
+  @Column(name="userId")
+  public long getUserId() {
+    return this.userId;
+  }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public Font getFont() {
-        return font;
-    }
-
-    public void setFont(Font font) {
-        this.font = font;
-    }
-
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
 }

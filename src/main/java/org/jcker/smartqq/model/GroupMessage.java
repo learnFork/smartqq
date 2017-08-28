@@ -1,88 +1,74 @@
 package org.jcker.smartqq.model;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.jcker.database.Entity;
-import org.jcker.database.annotation.ColumnMapping;
-import org.jcker.database.annotation.TableMapping;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.jcker.domain.BaseEntity;
 
-/**
- * 群消息.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @author <a href="http://helloalanturing.com">Alan Turing</a>
- */
-@TableMapping(tableName = "groupmessage", primaryKeyType = "Single", primaryKey = "time")
-public class GroupMessage extends Entity {
+@Entity
+@Table(name="groupmessage")
+public class GroupMessage extends BaseEntity
+{
+  private long groupId;
+  private long time;
+  private String content;
+  private long userId;
 
-    @ColumnMapping(columnName = "groupId", columnType = "Long")
-    private long groupId;
-    @ColumnMapping(columnName = "time", columnType = "Long")
-    private long time;
-    @ColumnMapping(columnName = "content", columnType = "String")
-    private String content;
-    @ColumnMapping(columnName = "userId", columnType = "Long")
-    private long userId;
+  public GroupMessage(JSONObject json)
+  {
+    JSONArray cont = json.getJSONArray("content");
 
-//    private Font font;
-
-    public GroupMessage(String jsonString) {
-        JSONObject json = JSON.parseObject(jsonString);
-        JSONArray cont = json.getJSONArray("content");
-//        this.font = cont.getJSONArray(0).getObject(1, Font.class);
-
-        final int size = cont.size();
-        final StringBuilder contentBuilder = new StringBuilder();
-        for (int i = 1; i < size; i++) {
-            contentBuilder.append(cont.getString(i));
-        }
-        this.content = contentBuilder.toString();
-
-        this.time = json.getLongValue("time");
-        this.groupId = json.getLongValue("group_code");
-        this.userId = json.getLongValue("send_uin");
+    int size = cont.size();
+    StringBuilder contentBuilder = new StringBuilder();
+    for (int i = 1; i < size; i++) {
+      contentBuilder.append(cont.getString(i));
     }
+    this.content = contentBuilder.toString();
 
-    public long getGroupId() {
-        return groupId;
-    }
+    this.time = json.getLongValue("time");
+    this.groupId = json.getLongValue("group_code");
+    this.userId = json.getLongValue("send_uin");
+  }
 
-    public void setGroupId(long groupId) {
-        this.groupId = groupId;
-    }
+  public GroupMessage() {
+  }
 
-    public long getTime() {
-        return time;
-    }
+  @Column(name="groupId")
+  public long getGroupId() {
+    return this.groupId;
+  }
 
-    public void setTime(long time) {
-        this.time = time;
-    }
+  public void setGroupId(long groupId) {
+    this.groupId = groupId;
+  }
+  @Id
+  @Column(name="time")
+  public long getTime() {
+    return this.time;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public void setTime(long time) {
+    this.time = time;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  @Column(name="content")
+  public String getContent() {
+    return this.content;
+  }
 
-    public long getUserId() {
-        return userId;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
+  @Column(name="userId")
+  public long getUserId() {
+    return this.userId;
+  }
 
-/*    public Font getFont() {
-        return font;
-    }
-
-    public void setFont(Font font) {
-        this.font = font;
-    }*/
-
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
 }

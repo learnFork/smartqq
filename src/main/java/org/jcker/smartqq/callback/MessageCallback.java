@@ -1,30 +1,14 @@
 package org.jcker.smartqq.callback;
 
 import org.jcker.smartqq.model.DiscussMessage;
+import org.jcker.smartqq.model.GroupMessage;
 import org.jcker.smartqq.model.Message;
 
-/**
- * 收到消息的回调
- * @author ScienJus
- * @date 2015/12/18.
- */
-public interface MessageCallback {
+public interface MessageCallback
+{
+    void onMessage(Message paramMessage);
 
-    /**
-     * 收到私聊消息后的回调
-     * @param message
-     */
-    void onMessage(Message message);
+    void onGroupMessage(GroupMessage paramGroupMessage);
 
-    /**
-     * 收到群消息后的回调
-     * @param message
-     */
-    void onGroupMessage(String message);
-
-    /**
-     * 收到讨论组消息后的回调
-     * @param message
-     */
-    void onDiscussMessage(DiscussMessage message);
+    void onDiscussMessage(DiscussMessage paramDiscussMessage);
 }

@@ -1,124 +1,105 @@
 package org.jcker.smartqq.model;
 
-import org.jcker.database.Entity;
+public class GroupUser
+{
+  private String nick;
+  private String province;
+  private String gender;
+  private long uin;
+  private String country;
+  private String city;
+  private String card;
+  private int clientType;
+  private int status;
+  private boolean vip;
+  private int vipLevel;
 
-/**
- * 群成员.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/24.
- */
-public class GroupUser extends Entity {
+  public String getNick()
+  {
+    return this.nick;
+  }
 
-    private String nick;
+  public void setNick(String nick) {
+    this.nick = nick;
+  }
 
-    private String province;
+  public String getProvince() {
+    return this.province;
+  }
 
-    private String gender;
+  public void setProvince(String province) {
+    this.province = province;
+  }
 
-    private long uin;
+  public String getGender() {
+    return this.gender;
+  }
 
-    private String country;
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 
-    private String city;
+  public long getUin() {
+    return this.uin;
+  }
 
-    private String card;
+  public void setUin(long uin) {
+    this.uin = uin;
+  }
 
-    private int clientType;
+  public String getCountry() {
+    return this.country;
+  }
 
-    private int status;
+  public void setCountry(String country) {
+    this.country = country;
+  }
 
-    private boolean vip;
+  public String getCity() {
+    return this.city;
+  }
 
-    private int vipLevel;
+  public void setCity(String city) {
+    this.city = city;
+  }
 
-    public String getNick() {
-        return nick;
-    }
+  public String getCard() {
+    return this.card;
+  }
 
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
+  public void setCard(String card) {
+    this.card = card;
+  }
 
-    public String getProvince() {
-        return province;
-    }
+  public int getClientType() {
+    return this.clientType;
+  }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
+  public void setClientType(int clientType) {
+    this.clientType = clientType;
+  }
 
-    public String getGender() {
-        return gender;
-    }
+  public int getStatus() {
+    return this.status;
+  }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
-    public long getUin() {
-        return uin;
-    }
+  public boolean isVip() {
+    return this.vip;
+  }
 
-    public void setUin(long uin) {
-        this.uin = uin;
-    }
+  public void setVip(boolean vip) {
+    this.vip = vip;
+  }
 
-    public String getCountry() {
-        return country;
-    }
+  public int getVipLevel() {
+    return this.vipLevel;
+  }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCard() {
-        return card;
-    }
-
-    public void setCard(String card) {
-        this.card = card;
-    }
-
-    public int getClientType() {
-        return clientType;
-    }
-
-    public void setClientType(int clientType) {
-        this.clientType = clientType;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public boolean isVip() {
-        return vip;
-    }
-
-    public void setVip(boolean vip) {
-        this.vip = vip;
-    }
-
-    public int getVipLevel() {
-        return vipLevel;
-    }
-
-    public void setVipLevel(int vipLevel) {
-        this.vipLevel = vipLevel;
-    }
-
+  public void setVipLevel(int vipLevel) {
+    this.vipLevel = vipLevel;
+  }
 }

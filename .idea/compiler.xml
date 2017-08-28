@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="myqq" />
+        <module name="smartqq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="myqq" target="1.8" />
+      <module name="smartqq" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

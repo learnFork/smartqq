@@ -2,44 +2,36 @@ package org.jcker.smartqq.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-/**
- * 好友状态.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/24.
- */
-public class FriendStatus {
+public class FriendStatus
+{
+  private long uin;
+  private String status;
 
-    private long uin;
+  @JSONField(name="client_type")
+  private int clientType;
 
-    private String status;
+  public long getUin()
+  {
+    return this.uin;
+  }
 
-    @JSONField(name = "client_type")
-    private int clientType;
+  public void setUin(long uin) {
+    this.uin = uin;
+  }
 
-    public long getUin() {
-        return uin;
-    }
+  public String getStatus() {
+    return this.status;
+  }
 
-    public void setUin(long uin) {
-        this.uin = uin;
-    }
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-    public String getStatus() {
-        return status;
-    }
+  public int getClientType() {
+    return this.clientType;
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public int getClientType() {
-        return clientType;
-    }
-
-    public void setClientType(int clientType) {
-        this.clientType = clientType;
-    }
-
+  public void setClientType(int clientType) {
+    this.clientType = clientType;
+  }
 }

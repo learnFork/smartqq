@@ -1,33 +1,24 @@
 package org.jcker.smartqq.model;
 
-/**
- * 最近会话.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/24.
- */
-public class Recent {
+public class Recent
+{
+  private long uin;
+  private int type;
 
-    private long uin;
+  public long getUin()
+  {
+    return this.uin;
+  }
 
-    //0:好友、1:群、2:讨论组
-    private int type;
+  public void setUin(long uin) {
+    this.uin = uin;
+  }
 
-    public long getUin() {
-        return uin;
-    }
+  public int getType() {
+    return this.type;
+  }
 
-    public void setUin(long uin) {
-        this.uin = uin;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
+  public void setType(int type) {
+    this.type = type;
+  }
 }

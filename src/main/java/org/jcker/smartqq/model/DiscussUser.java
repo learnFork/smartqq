@@ -1,62 +1,47 @@
 package org.jcker.smartqq.model;
 
-/**
- * 讨论组成员.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/24.
- */
-public class DiscussUser {
+public class DiscussUser
+{
+  private long uin;
+  private String nick;
+  private int clientType;
+  private String status;
 
-    private long uin;
+  public String toString()
+  {
+    return "DiscussUser{uin=" + this.uin + ", nick='" + this.nick + '\'' + ", clientType='" + this.clientType + '\'' + ", status='" + this.status + '\'' + '}';
+  }
 
-    private String nick;
+  public long getUin()
+  {
+    return this.uin;
+  }
 
-    private int clientType;
+  public void setUin(long uin) {
+    this.uin = uin;
+  }
 
-    private String status;
+  public String getNick() {
+    return this.nick;
+  }
 
-    @Override
-    public String toString() {
-        return "DiscussUser{"
-                + "uin=" + uin
-                + ", nick='" + nick + '\''
-                + ", clientType='" + clientType + '\''
-                + ", status='" + status + '\''
-                + '}';
-    }
+  public void setNick(String nick) {
+    this.nick = nick;
+  }
 
-    public long getUin() {
-        return uin;
-    }
+  public int getClientType() {
+    return this.clientType;
+  }
 
-    public void setUin(long uin) {
-        this.uin = uin;
-    }
+  public void setClientType(int clientType) {
+    this.clientType = clientType;
+  }
 
-    public String getNick() {
-        return nick;
-    }
+  public String getStatus() {
+    return this.status;
+  }
 
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
-
-    public int getClientType() {
-        return clientType;
-    }
-
-    public void setClientType(int clientType) {
-        this.clientType = clientType;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
+  public void setStatus(String status) {
+    this.status = status;
+  }
 }

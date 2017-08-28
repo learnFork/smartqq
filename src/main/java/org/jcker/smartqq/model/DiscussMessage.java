@@ -3,36 +3,26 @@ package org.jcker.smartqq.model;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-/**
- * 讨论组消息.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 15/12/19.
- */
 public class DiscussMessage {
-
     private long discussId;
-
     private long time;
-
     private String content;
-
     private long userId;
-
     private Font font;
 
     public DiscussMessage(JSONObject json) {
         JSONArray content = json.getJSONArray("content");
-        this.font = content.getJSONArray(0).getObject(1, Font.class);
+        this.font = ((Font) content.getJSONArray(0).getObject(1, Font.class));
         this.content = content.getString(1);
+        if (content.size() > 2)
+            this.content += content.getString(3);
         this.time = json.getLongValue("time");
         this.discussId = json.getLongValue("did");
         this.userId = json.getLongValue("send_uin");
     }
 
     public long getDiscussId() {
-        return discussId;
+        return this.discussId;
     }
 
     public void setDiscussId(long discussId) {
@@ -40,7 +30,7 @@ public class DiscussMessage {
     }
 
     public long getTime() {
-        return time;
+        return this.time;
     }
 
     public void setTime(long time) {
@@ -48,7 +38,7 @@ public class DiscussMessage {
     }
 
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(String content) {
@@ -56,7 +46,7 @@ public class DiscussMessage {
     }
 
     public long getUserId() {
-        return userId;
+        return this.userId;
     }
 
     public void setUserId(long userId) {
@@ -64,11 +54,10 @@ public class DiscussMessage {
     }
 
     public Font getFont() {
-        return font;
+        return this.font;
     }
 
     public void setFont(Font font) {
         this.font = font;
     }
-
 }

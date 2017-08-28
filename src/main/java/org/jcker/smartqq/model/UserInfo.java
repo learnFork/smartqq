@@ -2,56 +2,31 @@ package org.jcker.smartqq.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-/**
- * 用户.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/24.
- */
 public class UserInfo {
-
     private Birthday birthday;
-
     private String phone;
-
     private String occupation;
-
     private String college;
-
     private String uin;
-
     private int blood;
-
-    private String lnick;   //签名
-
+    private String lnick;
     private String homepage;
 
     @JSONField(name = "vip_info")
     private int vipInfo;
-
     private String city;
-
     private String country;
-
     private String province;
-
     private String personal;
-
     private int shengxiao;
-
     private String nick;
-
     private String email;
-
     private String account;
-
     private String gender;
-
     private String mobile;
 
     public Birthday getBirthday() {
-        return birthday;
+        return this.birthday;
     }
 
     public void setBirthday(Birthday birthday) {
@@ -59,7 +34,7 @@ public class UserInfo {
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -67,7 +42,7 @@ public class UserInfo {
     }
 
     public String getOccupation() {
-        return occupation;
+        return this.occupation;
     }
 
     public void setOccupation(String occupation) {
@@ -75,7 +50,7 @@ public class UserInfo {
     }
 
     public String getCollege() {
-        return college;
+        return this.college;
     }
 
     public void setCollege(String college) {
@@ -83,7 +58,7 @@ public class UserInfo {
     }
 
     public String getUin() {
-        return uin;
+        return this.uin;
     }
 
     public void setUin(String uin) {
@@ -91,7 +66,7 @@ public class UserInfo {
     }
 
     public int getBlood() {
-        return blood;
+        return this.blood;
     }
 
     public void setBlood(int blood) {
@@ -99,7 +74,7 @@ public class UserInfo {
     }
 
     public String getLnick() {
-        return lnick;
+        return this.lnick;
     }
 
     public void setLnick(String lnick) {
@@ -107,7 +82,7 @@ public class UserInfo {
     }
 
     public String getHomepage() {
-        return homepage;
+        return this.homepage;
     }
 
     public void setHomepage(String homepage) {
@@ -115,7 +90,7 @@ public class UserInfo {
     }
 
     public int getVipInfo() {
-        return vipInfo;
+        return this.vipInfo;
     }
 
     public void setVipInfo(int vipInfo) {
@@ -123,7 +98,7 @@ public class UserInfo {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public void setCity(String city) {
@@ -131,7 +106,7 @@ public class UserInfo {
     }
 
     public String getCountry() {
-        return country;
+        return this.country;
     }
 
     public void setCountry(String country) {
@@ -139,7 +114,7 @@ public class UserInfo {
     }
 
     public String getProvince() {
-        return province;
+        return this.province;
     }
 
     public void setProvince(String province) {
@@ -147,7 +122,7 @@ public class UserInfo {
     }
 
     public String getPersonal() {
-        return personal;
+        return this.personal;
     }
 
     public void setPersonal(String personal) {
@@ -155,7 +130,7 @@ public class UserInfo {
     }
 
     public int getShengxiao() {
-        return shengxiao;
+        return this.shengxiao;
     }
 
     public void setShengxiao(int shengxiao) {
@@ -163,7 +138,7 @@ public class UserInfo {
     }
 
     public String getNick() {
-        return nick;
+        return this.nick;
     }
 
     public void setNick(String nick) {
@@ -171,7 +146,7 @@ public class UserInfo {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -179,7 +154,7 @@ public class UserInfo {
     }
 
     public String getAccount() {
-        return account;
+        return this.account;
     }
 
     public void setAccount(String account) {
@@ -187,7 +162,7 @@ public class UserInfo {
     }
 
     public String getGender() {
-        return gender;
+        return this.gender;
     }
 
     public void setGender(String gender) {
@@ -195,11 +170,10 @@ public class UserInfo {
     }
 
     public String getMobile() {
-        return mobile;
+        return this.mobile;
     }
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-
 }

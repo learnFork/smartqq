@@ -1,73 +1,56 @@
 package org.jcker.smartqq.model;
 
-/**
- * 好友.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/18.
- */
-public class Friend {
+public class Friend
+{
+  private long userId;
+  private String markname = "";
+  private String nickname;
+  private boolean vip;
+  private int vipLevel;
 
-    private long userId;
+  public String toString()
+  {
+    return "Friend{userId=" + this.userId + ", markname='" + this.markname + '\'' + ", nickname='" + this.nickname + '\'' + ", vip=" + this.vip + ", vipLevel=" + this.vipLevel + '}';
+  }
 
-    private String markname = "";
+  public long getUserId()
+  {
+    return this.userId;
+  }
 
-    private String nickname;
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
 
-    private boolean vip;
+  public String getMarkname() {
+    return this.markname;
+  }
 
-    private int vipLevel;
+  public void setMarkname(String markname) {
+    this.markname = markname;
+  }
 
-    @Override
-    public String toString() {
-        return "Friend{"
-                + "userId=" + userId
-                + ", markname='" + markname + '\''
-                + ", nickname='" + nickname + '\''
-                + ", vip=" + vip
-                + ", vipLevel=" + vipLevel
-                + '}';
-    }
+  public String getNickname() {
+    return this.nickname;
+  }
 
-    public long getUserId() {
-        return userId;
-    }
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
+  public boolean isVip() {
+    return this.vip;
+  }
 
-    public String getMarkname() {
-        return markname;
-    }
+  public void setVip(boolean vip) {
+    this.vip = vip;
+  }
 
-    public void setMarkname(String markname) {
-        this.markname = markname;
-    }
+  public int getVipLevel() {
+    return this.vipLevel;
+  }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public boolean isVip() {
-        return vip;
-    }
-
-    public void setVip(boolean vip) {
-        this.vip = vip;
-    }
-
-    public int getVipLevel() {
-        return vipLevel;
-    }
-
-    public void setVipLevel(int vipLevel) {
-        this.vipLevel = vipLevel;
-    }
-
+  public void setVipLevel(int vipLevel) {
+    this.vipLevel = vipLevel;
+  }
 }

@@ -1,39 +1,23 @@
 package org.jcker.smartqq.model;
 
-import org.jcker.database.Entity;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 群资料.
- *
- * @author ScienJus
- * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @date 2015/12/24.
- */
-public class GroupInfo extends Entity {
-
+public class GroupInfo {
     private long gid;
-
     private long createtime;
-
     private String memo;
-
     private String name;
-
     private long owner;
-
     private String markname;
-
-    private List<GroupUser> users = new ArrayList<>();
+    private List<GroupUser> users = new ArrayList();
 
     public void addUser(GroupUser user) {
         this.users.add(user);
     }
 
     public long getGid() {
-        return gid;
+        return this.gid;
     }
 
     public void setGid(long gid) {
@@ -41,7 +25,7 @@ public class GroupInfo extends Entity {
     }
 
     public long getCreatetime() {
-        return createtime;
+        return this.createtime;
     }
 
     public void setCreatetime(long createtime) {
@@ -49,7 +33,7 @@ public class GroupInfo extends Entity {
     }
 
     public String getMemo() {
-        return memo;
+        return this.memo;
     }
 
     public void setMemo(String memo) {
@@ -57,7 +41,7 @@ public class GroupInfo extends Entity {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -65,7 +49,7 @@ public class GroupInfo extends Entity {
     }
 
     public long getOwner() {
-        return owner;
+        return this.owner;
     }
 
     public void setOwner(long owner) {
@@ -73,7 +57,7 @@ public class GroupInfo extends Entity {
     }
 
     public String getMarkname() {
-        return markname;
+        return this.markname;
     }
 
     public void setMarkname(String markname) {
@@ -81,11 +65,10 @@ public class GroupInfo extends Entity {
     }
 
     public List<GroupUser> getUsers() {
-        return users;
+        return this.users;
     }
 
     public void setUsers(List<GroupUser> users) {
         this.users = users;
     }
-
 }
