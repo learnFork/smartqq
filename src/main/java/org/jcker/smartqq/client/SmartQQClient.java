@@ -63,6 +63,7 @@ public class SmartQQClient
     private String psessionid;
     private volatile boolean pollStarted;
     public static String filePath = "";
+    public static Map<Long, GroupInfo> groupInfoMap = new HashMap<>();
 
     public SmartQQClient(final MessageCallback callback) {
         this.client = Client.pooled().maxPerRoute(5).maxTotal(10).build();

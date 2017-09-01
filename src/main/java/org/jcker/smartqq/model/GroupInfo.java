@@ -1,9 +1,14 @@
 package org.jcker.smartqq.model;
 
+import org.jcker.domain.BaseEntity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
-
-public class GroupInfo {
+@Entity
+public class GroupInfo extends BaseEntity {
     private long gid;
     private long createtime;
     private String memo;
@@ -23,7 +28,7 @@ public class GroupInfo {
     public void setGid(long gid) {
         this.gid = gid;
     }
-
+    @Id
     public long getCreatetime() {
         return this.createtime;
     }
@@ -48,6 +53,7 @@ public class GroupInfo {
         this.name = name;
     }
 
+
     public long getOwner() {
         return this.owner;
     }
@@ -64,6 +70,7 @@ public class GroupInfo {
         this.markname = markname;
     }
 
+    @Transient
     public List<GroupUser> getUsers() {
         return this.users;
     }

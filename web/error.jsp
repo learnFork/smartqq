@@ -43,8 +43,7 @@
         <!--menu list-->
         <nav class="collapse navbar-collapse" id="mainNavBar">
             <ul class="nav navbar-nav">
-                <li class="home"><a href="http://jcker.org">Home</a></li>
-                <%--<li class="groupMessage"><a href="group.jsp">Group</a></li>--%>
+                <li class="home"><a href="${basePath}/">Home</a></li>
             </ul>
         </nav>
     </div>

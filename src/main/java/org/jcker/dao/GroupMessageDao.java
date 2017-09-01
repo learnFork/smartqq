@@ -3,6 +3,11 @@ package org.jcker.dao;
 import org.jcker.smartqq.model.GroupMessage;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public abstract interface GroupMessageDao extends JpaRepository<GroupMessage, Long>
-{
+import java.util.List;
+
+public interface GroupMessageDao extends JpaRepository<GroupMessage, Long> {
+
+    List<GroupMessage> findAllByUserId(long userId);
+
+    List<GroupMessage> findAllByGroupIdOrderByTime(long groupId);
 }

@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jcker" />
         <module name="myqq" />
         <module name="smartqq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jcker" target="1.8" />
       <module name="myqq" target="1.8" />
       <module name="smartqq" target="1.8" />
     </bytecodeTargetLevel>

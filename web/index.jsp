@@ -19,71 +19,67 @@
     <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap-3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/messagebox.css" rel="stylesheet">
-    <style>
+    <style type="text/css">
+        #qrcode {
+            position: absolute;
+            left: 338px;
+            top: 91px;
+            width: 167px;
+            height: 167px;
+            border: 1px solid #7a7a7a;
+        }
 
     </style>
     <script src="easyui/jquery.min.js"></script>
-<%--    <script src="easyui/jquery.easyui.min.js"></script>--%>
-
     <script type='text/javascript'>
         $(function () {
-            //add latest 8 message
-            getLatestGroupMessage();
-            var ws;
-            ws = new WebSocket("ws://" + location.host + "${basePath}/websocket/qqmessage");
+            $.getJSON("${basePath}/start", function (messages) {
+                $.each(messages, function (index, message) {
+                    $("#message").append(
+                        $("<li>").append(
+                            $("<span>").append(
+                                $("<img class='img-thumbnail' src='img/favicon.ico'>")
+                            )
+                        ).append($("<span>", {text: message.nickname}))
+                            .append(
+                            $("<p>", {text: message.content})
+                        )
+                    );
+                });
+            });
+            var ws = new WebSocket("ws://" + location.host + "${basePath}/websocket/qqmessage");
             ws.onopen = function () {
                 console.log("websocket connected...");
             };
             ws.onmessage = function (event) {
-
-                //var msg = JSON.parse(event.data);
-                var msg = event.data;
-                if ($("#message").find("li").length > 5) {
-                    $("ul li:eq(0)").remove();
-                }
+                var message = JSON.parse(event.data);
                 $("#message").append(
                     $("<li>").append(
                         $("<span>").append(
-                            $("<img class='img-thumbnail'>").attr('src', "img/favicon.ico")
+                            $("<img class='img-thumbnail' src='img/favicon.ico'>")
                         )
-                    ).append(
-                        $("<p>", {text: msg})
-                    ).append(
-                        $("<HR style=\"color:#987cb9;\" width=\"100%\" color=#987cb9 SIZE=1>")
-                    )
-                );
+                    ).append($("<span>", {text: message.nickname}))
+                        .append(
+                            $("<p>", {text: message.content})
+                        ));
             };
+
             ws.onclose = function (event) {
                 console.log(event.data);
             };
 
             $(".home").addClass('active');
-        });
 
-        function getLatestGroupMessage() {
-            $.ajax({
-                type: "POST",
-                url: "${basePath}/getLatestGroupMessage",
-                //data: {},
-                dataType: "json",
-                success: function(data){
-                    $.each(data.groupMessages, function(index, message){
-                        $("#message").append(
-                            $("<li>").append(
-                                $("<span>").append(
-                                    $("<img class='img-thumbnail'>").attr('src', "img/favicon.ico")
-                                )
-                            ).append(
-                                $("<p>", {text: message.content})
-                            ).append(
-                                $("<HR style=\"color:#987cb9;\" width=\"100%\" color=#987cb9 SIZE=1>")
-                            )
-                        );
-                    });
-                }
+            /*$("#qrcode").hide();
+
+            $("#scan").click(function () {
+                $("#qrcode").fadeIn("slow");
             });
+            $("#qrcode").click(function () {
+                $("#qrcode").fadeOut("slow");
+            });*/
 
-        }
+        });
 
     </script>
 </head>
@@ -103,30 +99,19 @@
         <!--menu list-->
         <nav class="collapse navbar-collapse" id="mainNavBar">
             <ul class="nav navbar-nav">
-                <li class="home"><a href="http://jcker.org">Home</a></li>
-                <%--<li class="groupMessage"><a href="group.jsp">Group</a></li>--%>
+                <li class="home"><a href="${basePath}/">Home</a></li>
+                <li class="group" id="login"><a href="${basePath}/grouplist">Group</a></li>
+                <li class="personal" id="scan"><a href="${basePath}/personal">Personal</a></li>
             </ul>
         </nav>
     </div>
 </div>
 
 <div class="container">
-
     <ul id="message" class="message">
-        <%--<li>
-        <span>
-          <img src="img/favicon.ico" class="img-thumbnail"/>
-          <a href="index.jsp">Tag1</a>
-        </span>
-            <p>This is a test Placed at the end of the document so the pages load faster This is a test Placed at the
-                end of the document so the pages load faster This is a test Placed at the end of the document so the
-                pages load faster </p>
-            <HR style="color:#987cb9;strength:10" width="100%" color=#987cb9 SIZE=1>
-        </li>--%>
-
     </ul>
-
 </div>
+<%--<div id="qrcode"><img src="${basePath}/qrcode"></div>--%>
 
 <script src="bootstrap-3.3.7/js/jquery.min-2.2.4.js"></script>
 <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>

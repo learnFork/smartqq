@@ -16,6 +16,10 @@ public class Message extends BaseEntity
   private String content;
   private long userId;
 
+  public Message() {
+    super();
+  }
+
   public Message(JSONObject json)
   {
     JSONArray cont = json.getJSONArray("content");

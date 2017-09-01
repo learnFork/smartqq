@@ -1,46 +1,57 @@
 package org.jcker.smartqq.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import org.jcker.domain.BaseEntity;
 
-public class Group
-{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-  @JSONField(name="gid")
-  private long id;
-  private String name;
-  private long flag;
-  private long code;
+@Entity
+@Table(name = "groupentity")
+public class Group extends BaseEntity {
 
-  public long getId()
-  {
-    return this.id;
-  }
+    @JSONField(name = "gid")
+    private long id;
+    private String name;
+    private long flag;
+    private long code;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    @Column(name = "id")
+    public long getId() {
+        return this.id;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    @Id
+    @Column(name = "name")
+    public String getName() {
+        return this.name;
+    }
 
-  public long getFlag() {
-    return this.flag;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setFlag(long flag) {
-    this.flag = flag;
-  }
+    @Column(name = "flag")
+    public long getFlag() {
+        return this.flag;
+    }
 
-  public long getCode() {
-    return this.code;
-  }
+    public void setFlag(long flag) {
+        this.flag = flag;
+    }
 
-  public void setCode(long code) {
-    this.code = code;
-  }
+    @Column(name = "code")
+    public long getCode() {
+        return this.code;
+    }
+
+    public void setCode(long code) {
+        this.code = code;
+    }
 }
