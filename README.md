@@ -16,10 +16,10 @@
 ### h2数据库 
     方便部署 
 
-##感谢： 
+## 感谢： 
 [ScienJus](https://github.com/ScienJus/smartqq/ "SmartQQ API")提供访问Web QQ的API
 
-##联系方式 
+## 联系方式 
     helloalanturing@gmail.com
     欢迎加入社区QQ群：461217554
  
